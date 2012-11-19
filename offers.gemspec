@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'Offers'
+  s.name        = 'offers'
   s.version     = '0.0.1'
   s.date        = '2012-11-19'
   s.summary     = "Banzai Offers"
@@ -7,5 +7,5 @@ Gem::Specification.new do |s|
   s.authors     = ["Kendall Buchanan"]
   s.email       = 'kendall@teachbanzai.com'
   s.files       = ["lib/offers.rb"]
-  s.homepage    = ''
+  s.homepage    = 'https://github.com/kendagriff/offers'
 end
