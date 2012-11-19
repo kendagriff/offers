@@ -5,5 +5,6 @@ require 'active_support/test_case'
 
 class ActiveSupport::TestCase
   include Offers
+  include Offers::Rules
   Turn.config.format = :dot
 end
