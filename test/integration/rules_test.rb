@@ -1,18 +1,6 @@
 require 'test_helper'
 
-class MatchingTest < ActiveSupport::TestCase
-  class User
-    attr_accessor :age
-  end
-
-  class Teacher < User
-    def teacher?; true end;
-  end
-
-  class Student < User
-    def teacher?; false end;
-  end
-
+class RulesTest < ActiveSupport::TestCase
   setup do
     @user = User.new
   end

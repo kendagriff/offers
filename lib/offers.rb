@@ -1,2 +1,6 @@
 require 'date'
 require 'offers/offer'
+require 'offers/rule'
+require 'offers/target'
+require 'offers/repository'
+require 'offers/match_user_context'
