@@ -1,9 +1,8 @@
 module Offers
   module Target
-    def offers
-      return @offers if @offers
-      available = Repository.find(self)
-      @offers ||= available.select { |offer| Offers::Rules::MatchUserContext.call(self, offer.rules) }
+    def available_offers(offers)
+      return @available_offers if @available_offers
+      @available_offers ||= offers.select { |offer| Offers::Rules::MatchUserContext.call(self, offer.rules) }
     end
   end
 end
