@@ -23,4 +23,18 @@ user.extend Offers::Target
 user.available_offers(offers) # => [Offers::Offer...]
 ```
 
-The returned offers will find each offer available to the user according to the criteria defined in the offers' `Rule` objects and the user's attributes.
+Implement your own `Offers::Target` module and override the `offers` method to return offers from a custom location:
+
+```
+module User
+  module Target
+    include Offers::Target
+
+    def offers
+      [... my offers go here]
+    end
+  end
+end
+```
+
+The `available_offers` method will take the results of `offers` and match the right offers to the `User`, or whatever other object you inject.
