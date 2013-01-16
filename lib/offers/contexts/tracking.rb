@@ -2,10 +2,10 @@ require 'perspective/context'
 
 module Offers
   class Tracking < Perspective::Context
-    actors :offer, :target, :referrer
+    actors :offer, :target, :referrer, :offer_type
 
     def impress
-      impression = cast(Impression.new(offer: @offer, target: @target, referrer: @referrer), Offers::Impressions::Persistable)
+      impression = cast(Impression.new(offer: @offer, target: @target, referrer: @referrer, offer_type: @offer_type), Offers::Impressions::Persistable)
       impression.persist
       impression
     end
