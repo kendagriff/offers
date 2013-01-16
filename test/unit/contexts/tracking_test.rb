@@ -14,7 +14,7 @@ module Offers
 
     test "create impression" do
       referrer = '/this-long-url.html'
-      Impression.any_instance.expects(:persist)
+      Impression.any_instance.expects(:persist).returns(true)
       impression = Tracking.impress(offer: @offer, target: @target, referrer: referrer, offer_type: 'headline')
       assert impression.is_a?(Offers::Impressions::Persistable)
       assert_equal @offer, impression.offer
