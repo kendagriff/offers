@@ -10,12 +10,6 @@ gem 'offers', git: 'git://github.com/kendagriff/offers.git'
 
 ### Retrieving avaible offers
 
-Pull your offers from a database (or API, or whatever):
-
-```
-offers = OfferRepository.find(user)
-```
-
 Find available offers using the Target role:
 
 ```
@@ -38,3 +32,17 @@ end
 ```
 
 The `available_offers` method will take the results of `offers` and match the right offers to the `User`, or whatever other object you inject.
+
+### Persisting Impressions
+
+Implement your own `Persistable` role.
+
+```
+module Offers
+  module Persistable
+    def persist
+      ...
+    end
+  end
+end
+```
