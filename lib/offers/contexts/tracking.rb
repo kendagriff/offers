@@ -5,7 +5,7 @@ module Offers
     actors :offer, :target, :referrer
 
     def impress
-      impression = cast(Impression.new(offer: @offer, target: @target, referrer: @referrer), Persistable)
+      impression = cast(Impression.new(offer: @offer, target: @target, referrer: @referrer), Offers::Impressions::Persistable)
       impression.persist
       impression
     end

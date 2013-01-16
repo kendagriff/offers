@@ -1,7 +1,9 @@
 require 'test_helper'
 
 module Offers
-  module Persistable
+  module Impressions
+    module Persistable
+    end
   end
 
   class TrackingTest < ActiveSupport::TestCase
@@ -14,7 +16,7 @@ module Offers
       referrer = '/this-long-url.html'
       Impression.any_instance.expects(:persist)
       impression = Tracking.impress(offer: @offer, target: @target, referrer: referrer)
-      assert impression.is_a?(Persistable)
+      assert impression.is_a?(Offers::Impressions::Persistable)
       assert_equal @offer, impression.offer
       assert_equal @target, impression.target
       assert_equal referrer, impression.referrer
