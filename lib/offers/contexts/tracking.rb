@@ -6,7 +6,8 @@ module Offers
 
     def impress
       impression = cast(Impression.new(offer: @offer, target: @target, referrer: @referrer, offer_type: @offer_type), Offers::Impressions::Persistable)
-      impression.persist ? impression : false
+      impression.persist
+      impression
     end
   end
 end
