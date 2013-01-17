@@ -10,6 +10,12 @@ module Offers
         impression.persist
         impression
       end
+
+      def click
+        click = cast(Click.new(offer: @offer, target: @target, referrer: @referrer, offer_type: @offer_type), Offers::Statistics::Persistable)
+        click.persist
+        click
+      end
     end
   end
 end

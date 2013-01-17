@@ -11,6 +11,17 @@ module Offers
         @target = mock
       end
 
+      test "create click" do
+        referrer = '/this-long-url.html'
+        Click.any_instance.expects(:persist).returns(true)
+        click = Tracking.click(offer: @offer, target: @target, referrer: referrer, offer_type: 'headline')
+        assert click.is_a?(Offers::Statistics::Persistable)
+        assert_equal @offer, click.offer
+        assert_equal @target, click.target
+        assert_equal referrer, click.referrer
+        assert_equal 'headline', click.offer_type
+      end
+
       test "create impression" do
         referrer = '/this-long-url.html'
         Impression.any_instance.expects(:persist).returns(true)
