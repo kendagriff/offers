@@ -11,7 +11,7 @@ module Offers
         @rules.each do |rule|
           rule_object = Kernel.const_get("Offers")
           .const_get("Rules")
-          .const_get("#{rule.rule_type.capitalize}Rule")
+          .const_get("#{rule.rule_type.split('-').map { |i| i.capitalize }.join}Rule")
           rule.extend rule_object
         end
       end

@@ -34,4 +34,18 @@ class RulesTest < ActiveSupport::TestCase
     ]
     assert MatchUserContext.call(user, rules)
   end
+
+  test "match by teacher zip code" do
+    teacher = mock
+    teacher.stubs(:teacher_zip).returns('84032')
+    rule = Rule.new(rule_type: 'teacher-zips', zips: "94822,84032")
+    assert MatchUserContext.call(teacher, [rule])
+  end
+
+  test "do not match by teacher zip code" do
+    teacher = mock
+    teacher.stubs(:teacher_zip).returns('84032')
+    rule = Rule.new(rule_type: 'teacher-zips', zips: "93282,23212")
+    assert_equal false, MatchUserContext.call(teacher, [rule])
+  end
 end
