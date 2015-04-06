@@ -14,7 +14,7 @@ module Offers
 
     module AgeRule
       def match(user)
-        user.age >= self.lower_age && user.age <= self.upper_age
+        user.age && user.age >= self.lower_age && user.age <= self.upper_age
       end
     end
 
